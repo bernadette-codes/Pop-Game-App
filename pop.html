@@ -14,7 +14,7 @@
 
 <body>
 
-<!-- Home -->
+<!-- Home Link -->
 <nav class="navbar container-fluid">
     <div class="navbar-header">
         <a class="navbar-brand" href="http://www.bernadetteengleman.com/" id="home">Home</a>
@@ -24,16 +24,22 @@
 
 <main class="container">
 
+    <!-- Title-->
     <h1 class="text-center titleFont">Pop The Bubbles Game</h1>
 
     <div class="row" id="instruction">
 
         <div class="col-sm-6 col-xm-12">
+            <!-- Game Mechanics -->
             <p class="text-left messageFont">Some bubbles will make popped bubbles appear BUT there is one bubble that can pop everything!</p>
         </div>
 
         <div class="col-sm-6 col-xm-12">
+
+            <!-- Instruction -->
             <p class="text-left messageFont">You have 30 seconds to pop all the bubbles.</p>
+
+            <!-- Timer -->
             <h4 class="text-left" id="timer">Time Left: <strong><span id="countDown">30</span></strong> sec</h4>
         </div>
 
@@ -42,9 +48,13 @@
     <!-- Start Button -->
     <p style="text-align:center;"><img src="start.png" alt="START" style="width:80px" onclick="start()" id="startButton"></p>
 
+    <!-- Winner Image -->
     <div id="goodjob"></div>
+
+    <!-- Time is Up Image -->
     <div id="timeUP"></div>
 
+    <!-- Bubbles -->
     <p class="text-center top" id="cursor">
         <img src="bubble.jpg" alt="bubble" id="bubble1" class="pop" unselectable="on">
         <img src="bubble.jpg" alt="bubble" id="bubble2" class="pop" unselectable="on">
