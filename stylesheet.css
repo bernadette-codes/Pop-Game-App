@@ -16,25 +16,23 @@ body {
     user-select: none;
 }
 
-.navbar-nav > li > a, .navbar-brand {
-    padding-top:5px !important; padding-bottom:0 !important;
+nav.navbar {
+    min-height: 30px;
+}
+
+nav.navbar a.navbar-brand {
+    font-size: 1.25em;
+    color: #404040;
+    text-shadow: 2px 2px 4px #ffffff;
+    margin: 5px;
+    border-bottom: 3px solid #404040;
+    padding-top: 5px;
+    padding-bottom: 0;
     height: 30px;
 }
 
-.navbar {
-    min-height:30px !important;
-}
-
-a {
-    font-size: 1.25em !important;
-    color: #404040 !important;
-    text-shadow: 2px 2px 4px #ffffff;
-    margin: 5px !important;
-    border-bottom: 3px solid #404040 !important;
-}
-
-a:hover {
-    border-bottom: 5px solid #404040 !important;
+nav.navbar a:hover {
+    border-bottom: 5px solid #404040;
 }
 
 .titleFont {
@@ -44,7 +42,7 @@ a:hover {
     text-shadow: 2px 2px 4px #ffffff;
 }
 
-.messageFont {
+div#instruction p.messageFont {
     font-size: 1.2em;
     font-family: "Arial", Gadget, sans-serif;
     font-weight: 700;
@@ -78,14 +76,14 @@ img {
     cursor: pointer;
 }
 
-#startButton {
+p img#startButton {
     position: absolute;
     margin-left: auto;
     margin-right: auto;
     left: 0;
     right: 0;
-    padding: 50px 0!important;
-    cursor:pointer !important;
+    padding: 50px 0;
+    cursor: pointer;
 }
 
 #goodjob {
@@ -129,8 +127,8 @@ footer {
     .titleFont {
         font-size: 2em;
     }
-    .messageFont {
-        font-size: 1em !important;
+    div#instruction p.messageFont {
+        font-size: 1em;
     }
     img {
         width: 36px;
@@ -139,8 +137,8 @@ footer {
 }
 
 @media screen and (max-width: 380px) {
-    a {
-        font-size: 1em !important;
+    nav.navbar a.navbar-brand {
+        font-size: 1em;
     }
     .titleFont {
         font-size: 1.8em;
