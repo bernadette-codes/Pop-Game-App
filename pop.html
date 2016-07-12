@@ -16,10 +16,8 @@
 
 <!-- Home Link -->
 <nav class="navbar container-fluid">
-    <div class="navbar-header">
-        <a class="navbar-brand" href="http://www.bernadetteengleman.com/" id="home">Home</a>
-        <a class="navbar-brand" href="pop.html">Reset</a>
-    </div>
+    <a class="navbar-brand" href="http://www.bernadetteengleman.com/">Home</a>
+    <a class="navbar-brand" href="pop.html">Reset</a>
 </nav>
 
 <main class="container">
@@ -40,13 +38,15 @@
             <p class="text-left messageFont">You have 30 seconds to pop all the bubbles.</p>
 
             <!-- Timer -->
-            <h4 class="text-left" id="timer">Time Left: <strong><span id="countDown">30</span></strong> sec</h4>
+            <h4 class="text-left timer">Time Left: <strong><span id="countDown">30</span></strong> sec</h4>
         </div>
 
     </div>
 
     <!-- Start Button -->
-    <p style="text-align:center;"><img src="start.png" alt="START" style="width:80px" onclick="start()" id="startButton"></p>
+    <div>
+        <img src="start.png" alt="START" onclick="start()" class="startButton">
+    </div>
 
     <!-- Winner Image -->
     <div id="goodjob"></div>
@@ -55,7 +55,7 @@
     <div id="timeUP"></div>
 
     <!-- Bubbles -->
-    <p class="text-center top" id="cursor">
+    <div class="text-center top cursor">
         <img src="bubble.jpg" alt="bubble" id="bubble1" class="pop" unselectable="on">
         <img src="bubble.jpg" alt="bubble" id="bubble2" class="pop" unselectable="on">
         <img src="bubble.jpg" alt="bubble" id="bubble3" class="pop" unselectable="on">
@@ -120,7 +120,7 @@
         <img src="bubble.jpg" alt="bubble" id="bubble62" class="pop" unselectable="on">
         <img src="bubble.jpg" alt="bubble" id="bubble63" class="pop" unselectable="on">
         <img src="bubble.jpg" alt="bubble" id="bubble64" class="pop" unselectable="on"><br>
-    </p>
+    </div>
 
 </main>
 
