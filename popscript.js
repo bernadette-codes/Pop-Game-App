@@ -24,7 +24,7 @@ window.onload = function() {
 }
 
 // Start Game
-$("#startButton").click(function(){
+$(".startButton").click(function(){
     $(this).remove();
     showVisibility('.pop');
 });
