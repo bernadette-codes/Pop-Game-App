@@ -16,11 +16,12 @@ body {
     user-select: none;
 }
 
+/* Home Link */
 nav.navbar {
-    min-height: 30px;
+    min-height: 10px;
 }
 
-nav.navbar a.navbar-brand {
+a.navbar-brand {
     font-size: 1.25em;
     color: #404040;
     text-shadow: 2px 2px 4px #ffffff;
@@ -31,8 +32,13 @@ nav.navbar a.navbar-brand {
     height: 30px;
 }
 
-nav.navbar a:hover {
+a.navbar-brand:hover {
     border-bottom: 5px solid #404040;
+}
+
+/* Pop The Bubbles Title */
+main {
+    margin-top: -30px;
 }
 
 .titleFont {
@@ -42,7 +48,13 @@ nav.navbar a:hover {
     text-shadow: 2px 2px 4px #ffffff;
 }
 
-div#instruction p.messageFont {
+/* Instruction */
+#instruction {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.messageFont {
     font-size: 1.2em;
     font-family: "Arial", Gadget, sans-serif;
     font-weight: 700;
@@ -50,12 +62,7 @@ div#instruction p.messageFont {
     margin-bottom: 20px;
 }
 
-#instruction {
-    padding-left: 5%;
-    padding-right: 5%;
-}
-
-#timer {
+.timer {
     font-family: "Arial", Gadget, sans-serif;
     font-weight: 600;
     text-shadow: 2px 2px 4px #ffffff;
@@ -63,6 +70,7 @@ div#instruction p.messageFont {
     margin-bottom: 20px;
 }
 
+/* Bubble Image */
 img {
     width:40px;
     margin: -3px;
@@ -72,20 +80,22 @@ img {
     visibility: hidden;
 }
 
-#cursor {
+.cursor {
     cursor: pointer;
 }
 
-p img#startButton {
+.startButton {
     position: absolute;
-    margin-left: auto;
-    margin-right: auto;
     left: 0;
     right: 0;
+    width:80px;
+    margin-left: auto;
+    margin-right: auto;
     padding: 50px 0;
     cursor: pointer;
 }
 
+/* Win Game */
 #goodjob {
     background: url(goodjob.jpg) center center / 250px 210px no-repeat fixed;
     width:100%;
@@ -100,6 +110,7 @@ p img#startButton {
     visibility: hidden;
 }
 
+/* Lost Game */
 #timeUP {
     background: url(timeisup.jpg) center center / 210px no-repeat fixed;
     width:100%;
@@ -124,12 +135,15 @@ footer {
 }
 
 @media screen and (max-width: 550px) {
+    /* Pop The Bubbles Title */
     .titleFont {
         font-size: 2em;
     }
-    div#instruction p.messageFont {
+    /* Instruction */
+    .messageFont {
         font-size: 1em;
     }
+    /* Bubble Image */
     img {
         width: 36px;
         margin: -2px;
@@ -137,12 +151,15 @@ footer {
 }
 
 @media screen and (max-width: 380px) {
-    nav.navbar a.navbar-brand {
+    /* Home Link */
+    a.navbar-brand {
         font-size: 1em;
     }
+    /* Pop The Bubbles Title */
     .titleFont {
         font-size: 1.8em;
     }
+    /* Bubble Image */
     img {
         width: 30px;
         margin: -2px;
