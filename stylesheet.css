@@ -8,7 +8,7 @@ html {
 
 body {
     display: block;
-    background: url(background.jpg) center center / cover no-repeat fixed;
+    background: url(img/background.jpg) center center / cover no-repeat fixed;
     padding: 0;
     margin: 0 0 30px;
     -moz-user-select: none;
@@ -96,7 +96,7 @@ img.pop {
 
 /* Win Game */
 #goodjob {
-    background: url(goodjob.jpg) center center / 250px 210px no-repeat fixed;
+    background: url(img/goodjob.jpg) center center / 250px 210px no-repeat fixed;
     width:100%;
     height:100%;
     position: fixed;
@@ -111,7 +111,7 @@ img.pop {
 
 /* Lost Game */
 #timeUP {
-    background: url(timeisup.jpg) center center / 210px no-repeat fixed;
+    background: url(img/timeisup.jpg) center center / 210px no-repeat fixed;
     width:100%;
     height:100%;
     position: fixed;
