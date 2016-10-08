@@ -7,6 +7,18 @@ var d = new Date(),
     n = d.getFullYear();
 document.getElementById("year").innerHTML = n;
 
+// Select the burst all bubble
+var x = [];
+x[1] = "#bubble10";
+x[2] = "#bubble19";
+x[3] = "#bubble28";
+x[4] = "#bubble37";
+x[5] = "#bubble46";
+x[6] = "#bubble55";
+
+// Randomly select the burst-all bubble
+var i = Math.floor((Math.random() * 6) + 1);
+
 //Body Not Selectable
 window.onload = function() {
     document.body.onselectstart = function() {
@@ -55,17 +67,6 @@ function showVisibility(elemName) {
 function hideVisibility() {
     $(this).css("visibility", "hidden");
 }
-
-// Select the burst all bubble
-var x = [];
-x[1] = "#bubble10";
-x[2] = "#bubble19";
-x[3] = "#bubble28";
-x[4] = "#bubble37";
-x[5] = "#bubble46";
-x[6] = "#bubble55";
-
-var i = Math.floor((Math.random() * 6) + 1);
 
 $(document).ready(function(){
     // Window height
