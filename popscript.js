@@ -88,73 +88,37 @@ $(document).ready(function(){
     //Appear Bubbles
     $("#bubble6").click(function(){
         hideVisibility();
-        showVisibility('#bubble12');
-        showVisibility('#bubble23');
-        showVisibility('#bubble34');
-        showVisibility('#bubble45');
-        showVisibility('#bubble51');
-        showVisibility('#bubble62');
+        showVisibility('.popbubble6');
     });
 
     $("#bubble11").click(function(){
         hideVisibility();
-        showVisibility('#bubble3');
-        showVisibility('#bubble25');
-        showVisibility('#bubble53');
-        showVisibility('#bubble57');
+        showVisibility('.popbubble11');
     });
 
     $("#bubble24").click(function(){
         hideVisibility();
-        showVisibility('#bubble1');
-        showVisibility('#bubble13');
-        showVisibility('#bubble29');
-        showVisibility('#bubble33');
-        showVisibility('#bubble42');
-        showVisibility('#bubble50');
-        showVisibility('#bubble60');
+        showVisibility('.popbubble24');
     });
 
     $("#bubble30").click(function(){
         hideVisibility();
-        showVisibility('#bubble4');
-        showVisibility('#bubble24');
-        showVisibility('#bubble40');
-        showVisibility('#bubble44');
-        showVisibility('#bubble61');
+        showVisibility('.popbubble30');
     });
 
     $("#bubble43").click(function(){
         hideVisibility();
-        showVisibility('#bubble2');
-        showVisibility('#bubble9');
-        showVisibility('#bubble17');
-        showVisibility('#bubble27');
-        showVisibility('#bubble38');
-        showVisibility('#bubble54');
-        showVisibility('#bubble63');
+        showVisibility('.popbubble43');
     });
 
     $("#bubble52").click(function(){
         hideVisibility();
-        showVisibility('#bubble7');
-        showVisibility('#bubble14');
-        showVisibility('#bubble20');
-        showVisibility('#bubble26');
-        showVisibility('#bubble36');
-        showVisibility('#bubble41');
-        showVisibility('#bubble58');
+        showVisibility('.popbubble52');
     });
 
     $("#bubble59").click(function(){
         hideVisibility();
-        showVisibility('#bubble5');
-        showVisibility('#bubble15');
-        showVisibility('#bubble22');
-        showVisibility('#bubble31');
-        showVisibility('#bubble39');
-        showVisibility('#bubble43');
-        showVisibility('#bubble52');
+        showVisibility('.popbubble59');
     });
 });
 
