@@ -19,13 +19,6 @@ x[6] = "#bubble55";
 // Randomly select the burst-all bubble
 var i = Math.floor((Math.random() * 6) + 1);
 
-//Body Not Selectable
-window.onload = function() {
-    document.body.onselectstart = function() {
-        return false;
-    }
-};
-
 // 30 Sec Timer
 function start() {
     var timeLeft = 30,
@@ -170,3 +163,10 @@ $(document).ready(function(){
         showVisibility('#bubble52');
     });
 });
+
+//Body Not Selectable
+window.onload = function() {
+    document.body.onselectstart = function() {
+        return false;
+    }
+};
