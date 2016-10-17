@@ -8,16 +8,10 @@ var d = new Date(),
 document.getElementById("year").innerHTML = n;
 
 // Select the burst all bubble
-var x = [];
-x[1] = "#bubble10";
-x[2] = "#bubble19";
-x[3] = "#bubble28";
-x[4] = "#bubble37";
-x[5] = "#bubble46";
-x[6] = "#bubble55";
+var x = ["#bubble1", "#bubble10", "#bubble19", "#bubble28", "#bubble37", "#bubble46", "#bubble55", "#bubble64"];
 
 // Randomly select the burst-all bubble
-var i = Math.floor((Math.random() * 6) + 1);
+    i = Math.floor(Math.random() * 7);
 
 // 30 Sec Timer
 function start() {
