@@ -30,6 +30,24 @@ function start() {
     }
 }
 
+// Show bubble
+function showVisibility(elemName) {
+    $(elemName).css("visibility", "visible");
+}
+
+// Remove this bubble
+function hideVisibility() {
+    $(this).css("visibility", "hidden");
+}
+
+//Appear Bubbles
+function appearBubble(clickedBubble, popbubbles){
+    $(clickedBubble).click(function(){
+        hideVisibility();
+        showVisibility(popbubbles);
+    });
+}
+
 // Burst all bubble
 function burst() {
     var images = document.getElementsByTagName('img'),
@@ -43,16 +61,6 @@ function stop() {
     burst();
     document.getElementById("instruction").style.visibility="hidden";
     document.getElementById("timeUP").style.visibility="visible";
-}
-
-// Show bubble
-function showVisibility(elemName) {
-    $(elemName).css("visibility", "visible");
-}
-
-// Remove this bubble
-function hideVisibility() {
-    $(this).css("visibility", "hidden");
 }
 
 $(document).ready(function(){
@@ -85,41 +93,6 @@ $(document).ready(function(){
         }
     });
 
-    //Appear Bubbles
-    $("#bubble6").click(function(){
-        hideVisibility();
-        showVisibility('.popbubble6');
-    });
-
-    $("#bubble11").click(function(){
-        hideVisibility();
-        showVisibility('.popbubble11');
-    });
-
-    $("#bubble24").click(function(){
-        hideVisibility();
-        showVisibility('.popbubble24');
-    });
-
-    $("#bubble30").click(function(){
-        hideVisibility();
-        showVisibility('.popbubble30');
-    });
-
-    $("#bubble43").click(function(){
-        hideVisibility();
-        showVisibility('.popbubble43');
-    });
-
-    $("#bubble52").click(function(){
-        hideVisibility();
-        showVisibility('.popbubble52');
-    });
-
-    $("#bubble59").click(function(){
-        hideVisibility();
-        showVisibility('.popbubble59');
-    });
 });
 
 //Body Not Selectable
@@ -128,3 +101,12 @@ window.onload = function() {
         return false;
     }
 };
+
+//Call Appear Bubbles Function
+appearBubble("#bubble6", ".popbubble6");
+appearBubble("#bubble11", ".popbubble11");
+appearBubble("#bubble24", ".popbubble24");
+appearBubble("#bubble30", ".popbubble30");
+appearBubble("#bubble43", ".popbubble43");
+appearBubble("#bubble52", ".popbubble52");
+appearBubble("#bubble59", ".popbubble59");
