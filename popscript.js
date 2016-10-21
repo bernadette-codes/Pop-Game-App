@@ -7,10 +7,10 @@ var d = new Date(),
     n = d.getFullYear();
 document.getElementById("year").innerHTML = n;
 
-// Select the burst all bubble
+// Select Burst-All Bubble
 var x = ["#bubble1", "#bubble10", "#bubble19", "#bubble28", "#bubble37", "#bubble46", "#bubble55", "#bubble64"];
 
-// Randomly select the burst-all bubble
+// Randomly Select the Burst-all Bubble
     i = Math.floor(Math.random() * 7);
 
 // 30 Sec Timer
@@ -19,6 +19,7 @@ function start() {
         elem = document.getElementById("countDown"),
         timerId = setInterval(countdown, 1000);
 
+    // End Game
     function countdown() {
         if (timeLeft == -1) {
             clearTimeout(timerId);
@@ -30,17 +31,17 @@ function start() {
     }
 }
 
-// Show bubble
+// Show Bubble
 function showVisibility(elemName) {
     $(elemName).css("visibility", "visible");
 }
 
-// Remove this bubble
+// Remove this Bubble
 function hideVisibility() {
     $(this).css("visibility", "hidden");
 }
 
-//Appear Bubbles
+// Show Clicked Bubbles
 function appearBubble(clickedBubble, popbubbles){
     $(clickedBubble).click(function(){
         hideVisibility();
@@ -48,7 +49,7 @@ function appearBubble(clickedBubble, popbubbles){
     });
 }
 
-// Burst all bubble
+// Burst All Bubbles
 function burst() {
     var images = document.getElementsByTagName('img'),
         l = images.length;
@@ -56,7 +57,7 @@ function burst() {
         images[0].parentNode.removeChild(images[0]);}
 }
 
-// Time is Up
+// Game Over
 function stop() {
     burst();
     document.getElementById("instruction").style.visibility="hidden";
@@ -75,16 +76,18 @@ $(document).ready(function(){
     // Start Game
     $(".startButton").click(function(){
         $(this).remove();
+        // Show All Bubbles
         showVisibility('.pop');
     });
 
-    // Remove this bubble Call
+    // Remove this Bubble
     $("img").on('click', hideVisibility);
 
     // Select the burst all bubble
     $(x[i]).click(function(){
         burst();
 
+        // Win Game
         myVar = setTimeout(time, 750);
         function time() {
             document.getElementById("instruction").style.visibility="hidden";
