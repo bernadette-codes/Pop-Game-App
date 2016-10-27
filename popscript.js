@@ -1,17 +1,11 @@
-/**
- * Created by Bernadette on 3/29/2016.
- */
-
 // Copyright Year
 var d = new Date(),
     n = d.getFullYear();
 document.getElementById("year").innerHTML = n;
 
-// Select Burst-All Bubble
-var x = ["#bubble1", "#bubble10", "#bubble19", "#bubble28", "#bubble37", "#bubble46", "#bubble55", "#bubble64"];
-
 // Randomly Select the Burst-all Bubble
-    i = Math.floor(Math.random() * 7);
+var i = Math.floor((Math.random() * 64) + 1),
+    pickedBubble = "#bubble"+[i];
 
 // 30 Sec Timer
 function start() {
@@ -84,7 +78,7 @@ $(document).ready(function(){
     $("img").on('click', hideVisibility);
 
     // Select the burst all bubble
-    $(x[i]).click(function(){
+    $(pickedBubble).click(function(){
         burst();
 
         // Win Game
