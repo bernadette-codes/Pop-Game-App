@@ -3,10 +3,6 @@ var d = new Date(),
     n = d.getFullYear();
 document.getElementById("year").innerHTML = n;
 
-// Randomly Select the Burst-all Bubble
-var i = Math.floor((Math.random() * 64) + 1),
-    pickedBubble = "#bubble"+[i];
-
 // 30 Sec Timer
 function start() {
     var timeLeft = 30,
@@ -46,25 +42,32 @@ function appearBubble(clickedBubble, popbubbles){
 // Burst All Bubbles
 function burst() {
     var images = document.getElementsByTagName('img'),
-        l = images.length;
-    for (var i = 0; i < l; i++) {
+        l = images.length,
+        i;
+
+    for (i = 0; i < l; i++) {
         images[0].parentNode.removeChild(images[0]);}
 }
 
 // Game Over
 function stop() {
     burst();
-    document.getElementById("instruction").style.visibility="hidden";
-    document.getElementById("timeUP").style.visibility="visible";
+    document.getElementById("instruction").style.visibility = "hidden";
+    document.getElementById("timeUP").style.visibility = "visible";
 }
 
 $(document).ready(function(){
+
+    var windowHeight = $(window).height(),
+        windowWidth = $(window).width(),
+        // Randomly Select the Burst-all Bubble
+        x = Math.floor((Math.random() * 64) + 1),
+        pickedBubble = "#bubble"+[x];
+
     // Window height
-    var windowHeight=$(window).height();
     $(window).height(windowHeight+"px");
 
     // Window width
-    var windowWidth=$(window).width();
     //alert(windowWidth);
 
     // Start Game
@@ -84,9 +87,9 @@ $(document).ready(function(){
         // Win Game
         myVar = setTimeout(time, 750);
         function time() {
-            document.getElementById("instruction").style.visibility="hidden";
-            document.getElementById("timeUP").style.display="none";
-            document.getElementById("goodjob").style.visibility="visible";
+            document.getElementById("instruction").style.visibility = "hidden";
+            document.getElementById("timeUP").style.display = "none";
+            document.getElementById("goodjob").style.visibility = "visible";
         }
     });
 
