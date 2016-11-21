@@ -1,138 +1,116 @@
-<!DOCTYPE html>
-<html lang="en">
+// Copyright Year
+var d = new Date(),
+    n = d.getFullYear();
+document.getElementById("year").innerHTML = n;
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Pop The Bubbles Game</title>
-    <meta name="description" content="pop all 64 bubbles within 30 seconds">
-    <meta name="keywords" content="pop game, burst game">
-    <meta name="author" content="Bernadette Engleman">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="stylesheet.css">
-</head>
+var instruction = document.getElementById("instruction"),
+    timeUP = document.getElementById("timeUP");
 
-<body>
+// 30 Sec Timer
+function start() {
+    var timeLeft = 30,
+        elem = document.getElementById("countDown"),
+        timerId = setInterval(countdown, 1000);
 
-<!-- Home Link -->
-<nav class="navbar container-fluid">
-    <a class="navbar-brand" href="http://www.bernadetteengleman.com/">Home</a>
-    <a class="navbar-brand" href="pop.html">Reset</a>
-</nav>
+    // End Game
+    function countdown() {
+        if (timeLeft == -1) {
+            clearTimeout(timerId);
+            stop();
+        } else {
+            elem.innerHTML = timeLeft;
+            timeLeft--;
+        }
+    }
+}
 
-<main class="container">
+// Show Bubble
+function showVisibility(elemName) {
+    $(elemName).css("visibility", "visible");
+}
 
-    <!-- Title-->
-    <h1 class="text-center titleFont">Pop The Bubbles Game</h1>
+// Remove this Bubble
+function hideVisibility() {
+    $(this).css("visibility", "hidden");
+}
 
-    <div class="row" id="instruction">
+// Show Clicked Bubbles
+function appearBubble(clickedBubble, popbubbles){
+    $(clickedBubble).click(function(){
+        hideVisibility();
+        showVisibility(popbubbles);
+    });
+}
 
-        <div class="col-sm-6 col-xs-12">
-            <!-- Game Mechanics -->
-            <p class="text-left messageFont">Some bubbles will make popped bubbles appear BUT there is one bubble that can pop everything!</p>
-        </div>
+// Burst All Bubbles
+function burst() {
+    var images = document.getElementsByTagName('img'),
+        l = images.length,
+        i;
 
-        <div class="col-sm-6 col-xs-12">
+    for (i = 0; i < l; i++) {
+        images[0].parentNode.removeChild(images[0]);}
+}
 
-            <!-- Instruction -->
-            <p class="text-left messageFont">You have 30 seconds to pop all the bubbles.</p>
+// Game Over
+function stop() {
+    burst();
+    instruction.style.visibility = "hidden";
+    timeUP.style.visibility = "visible";
+}
 
-            <!-- Timer -->
-            <h4 class="text-left timer">Time Left: <strong><span id="countDown">30</span></strong> sec</h4>
-        </div>
+$(document).ready(function(){
 
-    </div>
+    var windowHeight = $(window).height(),
+        windowWidth = $(window).width(),
+        // Randomly Select the Burst-all Bubble
+        x = Math.floor((Math.random() * 64) + 1),
+        pickedBubble = "#bubble"+[x],
+        clickedImg = $("img");
 
-    <!-- Start Button -->
-    <div>
-        <img src="img/start.png" alt="START" width="80" onclick="start()" class="startButton">
-    </div>
+    // Window height
+    $(window).height(windowHeight+"px");
 
-    <!-- Winner Image -->
-    <div id="goodjob"></div>
+    // Window width
+    //alert(windowWidth);
 
-    <!-- Time is Up Image -->
-    <div id="timeUP"></div>
+    // Start Game
+    $(".startButton").click(function(){
+        $(this).remove();
+        // Show All Bubbles
+        showVisibility('.pop');
+    });
 
-    <!-- Bubbles -->
-    <div class="text-center top cursor">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble1" class="pop" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble2" class="pop popbubble43" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble3" class="pop popbubble11" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble4" class="pop popbubble30" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble5" class="pop popbubble59" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble6" class="pop" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble7" class="pop popbubble52" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble8" class="pop popbubble24" unselectable="on"><br>
-        <img src="img/bubble.jpg" alt="bubble" id="bubble9" class="pop popbubble43" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble10" class="pop" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble11" class="pop" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble12" class="pop popbubble6" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble13" class="pop popbubble24" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble14" class="pop popbubble52" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble15" class="pop popbubble59" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble16" class="pop" unselectable="on"><br>
-        <img src="img/bubble.jpg" alt="bubble" id="bubble17" class="pop popbubble43" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble18" class="pop" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble19" class="pop" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble20" class="pop popbubble52" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble21" class="pop popbubble30" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble22" class="pop popbubble59" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble23" class="pop popbubble6" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble24" class="pop" unselectable="on"><br>
-        <img src="img/bubble.jpg" alt="bubble" id="bubble25" class="pop popbubble11" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble26" class="pop popbubble52" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble27" class="pop popbubble43" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble28" class="pop" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble29" class="pop popbubble24" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble30" class="pop" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble31" class="pop popbubble59" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble32" class="pop" unselectable="on"><br>
-        <img src="img/bubble.jpg" alt="bubble" id="bubble33" class="pop popbubble24" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble34" class="pop popbubble6" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble35" class="pop popbubble59" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble36" class="pop popbubble52" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble37" class="pop" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble38" class="pop popbubble43" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble39" class="pop popbubble59" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble40" class="pop popbubble30" unselectable="on"><br>
-        <img src="img/bubble.jpg" alt="bubble" id="bubble41" class="pop popbubble52" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble42" class="pop popbubble24" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble43" class="pop" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble44" class="pop popbubble30" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble45" class="pop popbubble6" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble46" class="pop" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble47" class="pop" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble48" class="pop popbubble59" unselectable="on"><br>
-        <img src="img/bubble.jpg" alt="bubble" id="bubble49" class="pop" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble50" class="pop popbubble24" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble51" class="pop popbubble6" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble52" class="pop" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble53" class="pop popbubble11" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble54" class="pop popbubble43" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble55" class="pop" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble56" class="pop" unselectable="on"><br>
-        <img src="img/bubble.jpg" alt="bubble" id="bubble57" class="pop popbubble11" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble58" class="pop popbubble52" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble59" class="pop" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble60" class="pop popbubble24" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble61" class="pop popbubble30" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble62" class="pop popbubble6" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble63" class="pop popbubble43" unselectable="on">
-        <img src="img/bubble.jpg" alt="bubble" id="bubble64" class="pop" unselectable="on"><br>
-    </div>
+    // Remove this Bubble
+    clickedImg.on('click', hideVisibility);
 
-</main>
+    // Select the burst all bubble
+    $(pickedBubble).click(function(){
+        burst();
 
-<footer class="container-fluid text-center">
-    <p><small>Copyright © <span id="year"></span> Bernadette Engleman. All rights reserved.</small></p>
-</footer>
+        // Win Game
+        myVar = setTimeout(time, 750);
+        function time() {
+            instruction.style.visibility = "hidden";
+            timeUP.style.display = "none";
+            document.getElementById("goodjob").style.visibility = "visible";
+        }
+    });
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script src="popscript.js"></script>
+});
 
-</body>
+//Body Not Selectable
+window.onload = function() {
+    document.body.onselectstart = function() {
+        return false;
+    }
+};
 
-</html>
+//Call Appear Bubbles Function
+appearBubble("#bubble6", ".popbubble6");
+appearBubble("#bubble11", ".popbubble11");
+appearBubble("#bubble24", ".popbubble24");
+appearBubble("#bubble30", ".popbubble30");
+appearBubble("#bubble43", ".popbubble43");
+appearBubble("#bubble52", ".popbubble52");
+appearBubble("#bubble59", ".popbubble59");
