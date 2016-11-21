@@ -3,6 +3,9 @@ var d = new Date(),
     n = d.getFullYear();
 document.getElementById("year").innerHTML = n;
 
+var instruction = document.getElementById("instruction"),
+    timeUP = document.getElementById("timeUP");
+
 // 30 Sec Timer
 function start() {
     var timeLeft = 30,
@@ -52,8 +55,8 @@ function burst() {
 // Game Over
 function stop() {
     burst();
-    document.getElementById("instruction").style.visibility = "hidden";
-    document.getElementById("timeUP").style.visibility = "visible";
+    instruction.style.visibility = "hidden";
+    timeUP.style.visibility = "visible";
 }
 
 $(document).ready(function(){
@@ -62,7 +65,8 @@ $(document).ready(function(){
         windowWidth = $(window).width(),
         // Randomly Select the Burst-all Bubble
         x = Math.floor((Math.random() * 64) + 1),
-        pickedBubble = "#bubble"+[x];
+        pickedBubble = "#bubble"+[x],
+        clickedImg = $("img");
 
     // Window height
     $(window).height(windowHeight+"px");
@@ -78,7 +82,7 @@ $(document).ready(function(){
     });
 
     // Remove this Bubble
-    $("img").on('click', hideVisibility);
+    clickedImg.on('click', hideVisibility);
 
     // Select the burst all bubble
     $(pickedBubble).click(function(){
@@ -87,8 +91,8 @@ $(document).ready(function(){
         // Win Game
         myVar = setTimeout(time, 750);
         function time() {
-            document.getElementById("instruction").style.visibility = "hidden";
-            document.getElementById("timeUP").style.display = "none";
+            instruction.style.visibility = "hidden";
+            timeUP.style.display = "none";
             document.getElementById("goodjob").style.visibility = "visible";
         }
     });
