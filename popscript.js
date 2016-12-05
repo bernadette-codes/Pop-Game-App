@@ -21,8 +21,8 @@ function start() {
             elem.innerHTML = timeLeft;
             timeLeft--;
         }
-    }
-}
+    } // end countdown
+} // end start
 
 // Show Bubble
 function showVisibility(elemName) {
@@ -40,17 +40,17 @@ function appearBubble(clickedBubble, popbubbles){
         hideVisibility();
         showVisibility(popbubbles);
     });
-}
+} // end appearBubble
 
 // Burst All Bubbles
 function burst() {
     var images = document.getElementsByTagName('img'),
         l = images.length,
         i;
-
     for (i = 0; i < l; i++) {
-        images[0].parentNode.removeChild(images[0]);}
-}
+        images[0].parentNode.removeChild(images[0]);
+    }
+} // end burst
 
 // Game Over
 function stop() {
@@ -94,10 +94,10 @@ $(document).ready(function(){
             instruction.style.visibility = "hidden";
             timeUP.style.display = "none";
             document.getElementById("goodjob").style.visibility = "visible";
-        }
-    });
+        } // end time
+    }); // end click event
 
-});
+}); // end ready
 
 //Body Not Selectable
 window.onload = function() {
