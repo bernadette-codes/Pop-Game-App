@@ -3,13 +3,13 @@ var d = new Date(),
     n = d.getFullYear();
 document.getElementById("year").innerHTML = n;
 
-var instruction = document.getElementById("instruction"),
-    timeUP = document.getElementById("timeUP");
+var $instruction = document.getElementById("instruction"),
+    $timeUP = document.getElementById("timeUP");
 
 // 30 Sec Timer
 function start() {
     var timeLeft = 30,
-        elem = document.getElementById("countDown"),
+        $elem = document.getElementById("countDown"),
         timerId = setInterval(countdown, 1000);
 
     // End Game
@@ -18,7 +18,7 @@ function start() {
             clearTimeout(timerId);
             stop();
         } else {
-            elem.innerHTML = timeLeft;
+            $elem.innerHTML = timeLeft;
             timeLeft--;
         }
     } // end countdown
@@ -44,35 +44,63 @@ function appearBubble(clickedBubble, popbubbles){
 
 // Burst All Bubbles
 function burst() {
-    var images = document.getElementsByTagName('img'),
-        l = images.length,
+    var $images = document.getElementsByTagName('img'),
+        l = $images.length,
         i;
     for (i = 0; i < l; i++) {
-        images[0].parentNode.removeChild(images[0]);
+        $images[0].parentNode.removeChild($images[0]);
     }
 } // end burst
 
 // Game Over
 function stop() {
     burst();
-    instruction.style.visibility = "hidden";
-    timeUP.style.visibility = "visible";
+    $instruction.style.visibility = "hidden";
+    $timeUP.style.visibility = "visible";
 }
 
 $(document).ready(function(){
 
     var windowHeight = $(window).height(),
         windowWidth = $(window).width(),
+        navHeight = $("nav").height(),
+        instructionHeight = $("#instruction").height(),
+        //pop image size
+        popLandscape = (windowHeight - navHeight - instructionHeight - 50)/8,
+        popPortrait = (windowWidth - 50)/8,
+        $pop = $(".pop"),
         // Randomly Select the Burst-all Bubble
         x = Math.floor((Math.random() * 64) + 1),
         pickedBubble = "#bubble"+[x],
-        clickedImg = $("img");
+        $clickedImg = $("img");
 
-    // Window height
-    $(window).height(windowHeight+"px");
-
-    // Window width
     //alert(windowWidth);
+
+    //pop image size
+    if(windowHeight < windowWidth) {
+        //landscape screen
+        $pop.css("width", popLandscape);
+    } else {
+        //portrait screen
+        $pop.css("width", popPortrait);
+    }
+
+    $(window).on("resize", function() {
+        var navHeight = $("nav").height(),
+            instructionHeight = $("#instruction").height(),
+            //pop image size
+            popLandscape = (windowHeight - navHeight - instructionHeight - 30)/8,
+            popPortrait = (windowWidth - 30)/8;
+
+        if(windowHeight < windowWidth) {
+            //landscape screen
+            $pop.css("width", popLandscape);
+        } else {
+            //portrait screen
+            $pop.css("width", popPortrait);
+        }
+    });
+
 
     // Start Game
     $(".startButton").click(function(){
@@ -82,7 +110,7 @@ $(document).ready(function(){
     });
 
     // Remove this Bubble
-    clickedImg.on('click', hideVisibility);
+    $clickedImg.on('click', hideVisibility);
 
     // Select the burst all bubble
     $(pickedBubble).click(function(){
@@ -91,8 +119,8 @@ $(document).ready(function(){
         // Win Game
         myVar = setTimeout(time, 750);
         function time() {
-            instruction.style.visibility = "hidden";
-            timeUP.style.display = "none";
+            $instruction.style.visibility = "hidden";
+            $timeUP.style.display = "none";
             document.getElementById("goodjob").style.visibility = "visible";
         } // end time
     }); // end click event
