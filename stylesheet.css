@@ -24,7 +24,6 @@ nav.navbar {
 a.navbar-brand {
     font-size: 1.25em;
     color: #404040;
-    text-shadow: 2px 2px 4px #ffffff;
     margin: 5px;
     border-bottom: 3px solid #404040;
     padding-top: 5px;
@@ -41,33 +40,47 @@ main {
     margin-top: -30px;
 }
 
-.titleFont {
+h1 {
+    display: inline-block;
     font-size: 2.2em;
     font-family: "Arial", Gadget, sans-serif;
     font-weight: 700;
+    padding: 10px 15px;
+    margin: 5px 20px 10px;
+    border-radius: 15px;
+}
+
+h1,
+#instruction .col-sm-6.col-xs-12 {
+    background-color: #d9d9d9;
+    border: 2px solid #c3c3c3;
+}
+
+a.navbar-brand, h1,
+#instruction {
     text-shadow: 2px 2px 4px #ffffff;
 }
 
 /* Instruction */
-#instruction {
-    padding-left: 5%;
-    padding-right: 5%;
+#instruction .col-sm-6.col-xs-12 {
+    width: 35%;
+    text-align: center;
+    border-radius: 20px;
+    padding: 10px 10px 0;
+    margin: 10px 0 30px 20px;
 }
 
 .messageFont {
     font-size: 1.2em;
     font-family: "Arial", Gadget, sans-serif;
     font-weight: 700;
-    text-shadow: 2px 2px 4px #ffffff;
-    margin-bottom: 20px;
 }
 
 .timer {
     font-family: "Arial", Gadget, sans-serif;
+    font-size: 1.3em;
     font-weight: 600;
-    text-shadow: 2px 2px 4px #ffffff;
-    margin-top: -18px;
-    margin-bottom: 20px;
+    margin-top: -10px;
 }
 
 /* Bubble Image */
@@ -80,7 +93,7 @@ img.pop {
     visibility: hidden;
 }
 
-.cursor {
+.allBubbles {
     cursor: pointer;
 }
 
@@ -133,10 +146,43 @@ footer {
     padding-top: 30px;
 }
 
+/** Media Queries **/
+@media screen and (max-width: 1230px) {
+    /* Instruction */
+    #instruction .col-sm-6.col-xs-12 {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    /* Instruction */
+    #instruction .col-sm-6.col-xs-12 {
+        width: 65%;
+        margin: 5px 0 0 20px;
+    }
+    #instruction {
+        margin-bottom: 25px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    /* Instruction */
+    #instruction .col-sm-6.col-xs-12 {
+        width: 85%;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    /* Pop The Bubbles Title */
+    h1 {
+        font-size: 1.9em;
+    }
+}
+
 @media screen and (max-width: 550px) {
     /* Pop The Bubbles Title */
-    .titleFont {
-        font-size: 2em;
+    h1 {
+        font-size: 1.7em;
     }
     /* Instruction */
     .messageFont {
@@ -149,18 +195,38 @@ footer {
     }
 }
 
+@media screen and (max-width: 450px) {
+    /* Pop The Bubbles Title */
+    h1 {
+        font-size: 1.5em;
+    }
+}
+
 @media screen and (max-width: 380px) {
     /* Home Link */
     a.navbar-brand {
         font-size: 1em;
     }
     /* Pop The Bubbles Title */
-    .titleFont {
-        font-size: 1.8em;
+    h1 {
+        font-size: 1.2em;
+    }
+    .timer {
+        font-size: 1.1em;
     }
     /* Bubble Image */
     img.pop {
         width: 30px;
         margin: -2px;
+    }
+}
+
+@media screen and (max-width: 330px) {
+    /* Pop The Bubbles Title */
+    h1 {
+        font-size: 1.1em;
+    }
+    .timer {
+        font-size: 1em;
     }
 }
