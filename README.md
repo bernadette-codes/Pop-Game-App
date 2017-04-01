@@ -1,6 +1,18 @@
-Pop Game App
 
-Description: The objective of the Pop Game App is to pop all 64 bubbles within 30 seconds. 
-The challenge of the game is that some bubbles will make popped bubbles appear but there is one bubble that can instantly pop all the remaining bubbles.
+**Pop The Bubbles Game**
+--------------------
 
-Link: http://www.bernadetteengleman.com/Apps/Pop%20Game/pop.html
+The objective of [Pop The Bubbles Game](http://www.bernadetteengleman.com/Apps/Pop%20Game/pop.html) is to pop all 64 bubbles within 30 seconds.
+
+![Pop The Bubbles Game Webpage](http://www.bernadetteengleman.com/img/portfolio/popthumbnail2.jpg)
+
+ - 	Pop the Bubble is a single-page, responsive web application game programmed with JavaScript.
+ - It utilizes CSS3 Animation and jQuery UI.
+
+**Front-End:**
+
+ - JavaScript
+ - jQuery
+ - Bootstrap
+ - CSS
+ - HTML
