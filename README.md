@@ -1,13 +1,16 @@
 
-**Pop The Bubbles Game**
+**Weather App**
 --------------------
 
-The objective of [Pop The Bubbles Game](http://www.bernadetteengleman.com/Apps/Pop%20Game/pop.html) is to pop all 64 bubbles within 30 seconds.
+[Weather App](http://www.bernadetteengleman.com/Apps/Weather%20App/weatherapp.html) shows the temperature, weather today and 5-day forecast based on the user's location. The background color also changes based on today's temperature.
 
-![Pop The Bubbles Game Webpage](http://www.bernadetteengleman.com/img/portfolio/popthumbnail2.jpg)
+![Weather App Webpage](http://www.bernadetteengleman.com/img/portfolio/weatherappthumbnail2.jpg)
 
- - 	Pop the Bubble is a single-page, responsive web application game programmed with JavaScript.
- - It utilizes CSS3 Animation and jQuery UI.
+![Weather App Webpage after fetching weather](http://www.bernadetteengleman.com/img/portfolio/weatherappthumbnail.jpg)
+
+ - 	Detects and show the user’s location using Geolocation API
+ - Provides location’s current weather using Open Weather API
+ - Features 5-day forecast using simpleWeather.js API
 
 **Front-End:**
 
@@ -15,4 +18,4 @@ The objective of [Pop The Bubbles Game](http://www.bernadetteengleman.com/Apps/P
  - jQuery
  - Bootstrap
  - CSS
- - HTML
+ - HTML5
