@@ -3,26 +3,8 @@ var d = new Date(),
     n = d.getFullYear();
 document.getElementById("year").innerHTML = n;
 
-var $instruction = document.getElementById("instruction"),
-    $timeUP = document.getElementById("timeUP");
-
-// 30 Sec Timer
-function start() {
-    var timeLeft = 30,
-        $elem = document.getElementById("countDown"),
-        timerId = setInterval(countdown, 1000);
-
-    // End Game
-    function countdown() {
-        if (timeLeft == -1) {
-            clearTimeout(timerId);
-            stop();
-        } else {
-            $elem.innerHTML = timeLeft;
-            timeLeft--;
-        }
-    } // end countdown
-} // end start
+var $instruction = $("#instruction"),
+    $timeUP = $("#timeUP");
 
 // Show Bubble
 function showVisibility(elemName) {
@@ -40,23 +22,18 @@ function appearBubble(clickedBubble, popbubbles){
         hideVisibility();
         showVisibility(popbubbles);
     });
-} // end appearBubble
+}
 
 // Burst All Bubbles
 function burst() {
-    var $images = document.getElementsByTagName('img'),
-        l = $images.length,
-        i;
-    for (i = 0; i < l; i++) {
-        $images[0].parentNode.removeChild($images[0]);
-    }
-} // end burst
+    $(".allBubbles").empty();
+}
 
 // Game Over
 function stop() {
     burst();
-    $instruction.style.visibility = "hidden";
-    $timeUP.style.visibility = "visible";
+    $instruction.css('visibility', 'hidden');
+    $timeUP.css('visibility', 'visible');
 }
 
 $(document).ready(function(){
@@ -86,7 +63,9 @@ $(document).ready(function(){
     }
 
     $(window).on("resize", function() {
-        var navHeight = $("nav").height(),
+        var windowHeight = $(window).height(),
+            windowWidth = $(window).width(),
+            navHeight = $("nav").height(),
             instructionHeight = $("#instruction").height(),
             //pop image size
             popLandscape = (windowHeight - navHeight - instructionHeight - 30)/8,
@@ -101,27 +80,43 @@ $(document).ready(function(){
         }
     });
 
-
     // Start Game
     $(".startButton").click(function(){
+        var timeLeft = 30,
+            timerId = setInterval(countdown, 1000),
+            $elem = $("#countDown");
+
+        // 30 Sec Timer
+        function countdown() {
+            if (timeLeft == -1) {
+                clearTimeout(timerId);
+                stop();
+            } else {
+                $elem.html(timeLeft);
+                timeLeft--;
+            }
+        } // end countdown
+
+        // Remove Start Button
         $(this).remove();
+
         // Show All Bubbles
         showVisibility('.pop');
-    });
+    }); // end startButton click
 
     // Remove this Bubble
     $clickedImg.on('click', hideVisibility);
 
     // Select the burst all bubble
-    $(pickedBubble).click(function(){
+    $(pickedBubble).on('click' ,function(){
         burst();
 
         // Win Game
         myVar = setTimeout(time, 750);
         function time() {
-            $instruction.style.visibility = "hidden";
-            $timeUP.style.display = "none";
-            document.getElementById("goodjob").style.visibility = "visible";
+            $instruction.css('visibility', 'hidden');
+            $timeUP.css('display', 'none');
+            $("#goodjob").css('visibility', 'visible');
         } // end time
     }); // end click event
 
