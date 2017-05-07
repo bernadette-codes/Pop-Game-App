@@ -2,7 +2,7 @@
 **Weather App**
 --------------------
 
-[Weather App](http://www.bernadetteengleman.com/Apps/Weather%20App/weatherapp.html) shows the temperature, weather today and 5-day forecast based on the user's location. The background color also changes based on today's temperature.
+[Weather App](http://www.bernadetteengleman.com/Apps/Weather-App/weatherapp.html) shows the temperature, weather today and 5-day forecast based on the user's location. The background color also changes based on today's temperature.
 
 ![Weather App Webpage](http://www.bernadetteengleman.com/img/portfolio/weatherappthumbnail2.jpg)
 
