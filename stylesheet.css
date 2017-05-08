@@ -31,8 +31,10 @@ a.navbar-brand {
     height: 30px;
 }
 
-a.navbar-brand:hover {
+a.navbar-brand:hover,
+a.navbar-brand:focus {
     border-bottom: 5px solid #404040;
+    outline: none;
 }
 
 /* Pop The Bubbles Title */
